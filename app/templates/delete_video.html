@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+
+{% block title %}CS-TWOTS - Confirm Delete Video{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='videos.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex align-items-center justify-content-center mt-5 mb-5 p-0 w-50" style="height: 300px">
+  <div class="card w-75 d-flex align-items-center justify-content-center h-75 rounded" data-bs-theme="dark">
+    <h1>Confirm Delete Video</h1>
+    <div class="d-flex align-items-center justify-content-center border rounded w-75 m-3">
+      <p>
+        Are you sure you want to delete the video "<strong>{{ video.title }}</strong>"?
+      </p>
+    </div>
+    <form method="POST" action="{{ url_for('main.delete_video', video_id=video.id) }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      <button type="submit" class="btn btn-lg btn-danger">Confirm Delete</button>
+    </form>
+    <a href="{{ url_for('main.admin_dashboard') }}" class="mt-1">Cancel</a>
+  </div>
+</div>
+
+{% endblock %}

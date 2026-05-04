@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>The request could not be accepted</h1>
+    <p>The form's security token is missing or has expired. Go back, reload the page and try again.</p>
+    <p><a href="{{ url_for('main.index') }}">Back</a></p>
+{% endblock %}

@@ -1,0 +1,305 @@
+#formSeparator {
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#navbarNav {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.navbar-nav .nav-item.dropdown {
+    position: static;
+}
+
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+    right: 0;
+}
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu,
+.navbar-nav .nav-item.dropdown .show .dropdown-menu {
+    display: block;
+}
+
+
+#login-btn,
+#signup-btn {
+    margin: 0.1rem;
+    background-color: orangered !important;
+    border: #000;
+}
+
+.videos-grid {
+    padding: 10px;
+    border-radius: 10px;
+    height: 80%;
+}
+
+.headerLogo {
+    width: 170px;
+    border-radius: 10px;
+}
+
+.headerContent {
+    border-radius: 10px;
+}
+
+.cardsContent {
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    padding: 0;
+}
+
+
+.form-switch .form-check-input {
+    height: 24px;
+    width: 48px;
+}
+
+.form-switch .form-check-input:focus {
+    border-color: rgba(0, 0, 0, 0.25);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #30D158;
+    border-color: #30D158;
+    border: none;
+}
+
+.form-switch .form-check-label {
+    display: flex;
+    color: #000;
+}
+
+
+#subHeaderVids {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-family: monospace, sans-serif;
+    font: bold;
+    margin-bottom: 25px;
+}
+
+#heImg,
+#mollyImg,
+#flashImg,
+#smokeImg {
+    width: 90px;
+    height: 80px;
+    margin: 1px;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+#nadesContainer {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+#mapsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.whiteLogo {
+    height: 50px;
+    width: auto;
+}
+
+.bookmarksLabel {
+    margin-right: 15px !important;
+}
+
+body {
+    background-image: url(../static/images/cs2-web-bg.png);
+    background-repeat: repeat;
+    background-position: center top;
+    background-size: contain;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: 100%;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.selectAllButton,
+.mirageButton,
+.infernoButton,
+.ancientButton,
+.anubisButton,
+.nukeButton,
+.overpassButton,
+.vertigoButton {
+    margin: 2px;
+    transition: box-shadow 0.5s ease, background-color 0.3s ease;
+}
+
+.selectAllButton:hover,
+.mirageButton:hover,
+.infernoButton:hover,
+.ancientButton:hover,
+.vertigoButton:hover,
+.anubisButton:hover,
+.overpassButton:hover,
+.nukeButton:hover {
+    margin: 2px;
+    border: solid 1px white !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.mirageButton:active,
+.infernoButton:active,
+.ancientButton:active,
+.vertigoButton:active,
+.anubisButton:active,
+.overpassButton:active,
+.nukeButton:active,
+.mirageButton:focus,
+.infernoButton:focus,
+.ancientButton:focus,
+.vertigoButton:focus,
+.anubisButton:focus,
+.overpassButton:focus,
+.nukeButton:focus {
+    margin: 2px;
+    border: solid 1px white !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: orangered !important;
+}
+
+.smokeButton,
+.flashButton,
+.mollyButton,
+.heButton {
+    padding: 10px;
+    border-radius: 50%;
+    margin: 15px;
+    transition: box-shadow 0.5s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.smokeButton:hover,
+.flashButton:hover,
+.mollyButton:hover,
+.heButton:hover {
+    border: solid 1px white !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    background-color: orangered !important;
+    transform: scale(1.15);
+}
+
+.smokeButton:active,
+.flashButton:active,
+.mollyButton:active,
+.heButton:active {
+    border: solid 1px white !important;
+    background-color: orangered !important;
+}
+
+.card .thumbs {
+    max-height: 350px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.ratio {
+    width: 100%;
+    padding-bottom: 45.25%;
+}
+
+#cardsContainer .col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#cardsContainer .col .card {
+    height: 100%;
+}
+
+#cardsContainer .col .card-body {
+    flex: 1;
+}
+
+#cardsContainer .col .ratio {
+    height: 100%;
+}
+
+.watchButton {
+    background-color: orangered !important;
+}
+
+footer h5 {
+    font-family: monospace, sans-serif;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+    padding: 2px;
+}
+
+.footerImgDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footerImgDiv img {
+    width: 15%;
+}
+
+.contactsDiv {
+    text-align: right;
+}
+
+.footer {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    color: orangered;
+}

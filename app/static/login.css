@@ -1,0 +1,88 @@
+#loginDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    min-height: 590px;
+}
+
+#loginDiv hr {
+    width: 100%;
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+.googleIcon {
+    margin-right: 10px;
+}
+
+.googleButton {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-check {
+    height: auto;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.finishLogin {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 50% !important;
+    background-color: orangered !important;
+    border: 1px solid #000 !important;
+    transition: box-shadow 0.5s;
+}
+
+.finishLogin:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    scale: 1.1;
+}
+
+.loginTitle {
+    align-items: center !important;
+}
+
+
+.passReset {
+    text-decoration: none;
+    color: gray;
+    float: right !important;
+}
+
+.passReset:hover {
+    text-decoration: underline;
+}
+
+.signupLink {
+    color: green;
+    text-decoration: none !important;
+}
+
+.signupLink:hover {
+    text-decoration: underline !important;
+}
+
+@media (min-width: 768px) {
+    #loginDiv {
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,84 @@
+#signupDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.whiteLogo {
+    height: 50px;
+    width: auto;
+}
+
+#signupDiv hr {
+    width: 100%;
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+.googleIcon {
+    margin-right: 10px;
+}
+
+.googleButton {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-check {
+    height: auto;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+#login-btn,
+#signup-btn {
+    margin: 0.1rem;
+    background-color: orangered !important;
+    border: #000;
+}
+
+.registerButton {
+    margin-top: 20px;
+    background-color: orangered !important;
+    border: 1px solid #000 !important;
+    transition: box-shadow 0.5s;
+}
+
+.registerButton:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    scale: 1.1;
+}
+
+.loginLink {
+    color: green;
+    text-decoration: none !important;
+}
+
+.loginLink:hover {
+    text-decoration: underline !important;
+}
+
+@media (min-width: 768px) {
+    #loginDiv {
+        max-width: 400px;
+    }
+}

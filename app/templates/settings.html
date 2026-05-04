@@ -1,0 +1,133 @@
+{% extends 'base.html' %} {% block title %}CS-TWOTS - Manage Account{% endblock
+%} {% block head %}
+
+<link rel="stylesheet" href="./static/manageAcc.css" />
+
+{% endblock %} {% block content %}
+
+<div class="container-fluid">
+  <div
+    id="manageAccDiv"
+    class="card align-items-center mt-5 mb-5"
+    data-bs-theme="dark"
+  >
+    <h2>Manage Account</h2>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      
+      {% for message in messages %}
+    
+        
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{ message }}</strong> 
+          <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+      
+    {% endif %}
+    {% endwith %}
+
+    {% from "_formhelpers.html" import render_change_profile_pic_field %}
+
+    <div class="container-fluid m-3 align-items-center">
+      <h3>Change Profile Picture</h3>
+      <form method="post" action="{{ url_for('main.manage_account') }}">
+        {{ change_profile_pic_form.hidden_tag() }} {{
+        render_change_profile_pic_field(change_profile_pic_form.profile_pic) }}
+        <br />
+        {{ change_profile_pic_form.submit(class="btn m-2 btnChange") }}
+      </form>
+    </div>
+
+    {% from "_formhelpers.html" import render_change_email_field %}
+
+    <div class="container-fluid m-3 align-items-center">
+      <h3>Change Email</h3>
+      <form method="post" action="{{ url_for('main.manage_account') }}">
+        {{ change_email_form.hidden_tag() }} {{
+        render_change_email_field(change_email_form.email) }} {{
+        change_email_form.submit(class="btn m-2 btnChange") }}
+      </form>
+    </div>
+    {% from "_formhelpers.html" import render_change_password_field %}
+
+    <div class="container-fluid m-3 align-items-center">
+      <h3>Change Password</h3>
+      <form method="post" action="{{ url_for('main.manage_account') }}">
+        {{ change_password_form.hidden_tag() }} {{
+        render_change_password_field(change_password_form.old_password) }} {{
+        render_change_password_field(change_password_form.new_password) }} {{
+        render_change_password_field(change_password_form.confirm_password) }}
+        {{ change_password_form.submit(class="btn m-2 btnChange") }}
+      </form>
+    </div>
+
+    <div
+      class="container-fluid d-flex align-items-center justify-content-center"
+    >
+      <h3>Delete Account</h3>
+    </div>
+    <form method="post" action="{{ url_for('main.delete_account') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      <button
+        type="button"
+        class="btn btn-danger"
+        data-bs-toggle="modal"
+        data-bs-target="#deleteAccountModal"
+      >
+        Delete Account
+      </button>
+    </form>
+
+    <div
+      class="modal fade"
+      id="deleteAccountModal"
+      tabindex="-1"
+      aria-labelledby="deleteAccountModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteAccountModalLabel">
+              Delete Account
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete your account?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <form method="post" action="{{ url_for('main.delete_account') }}">
+              <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+              />
+              <button type="submit" class="btn btn-danger">
+                Delete Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

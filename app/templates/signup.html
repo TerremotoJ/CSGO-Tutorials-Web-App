@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}CS-TWOTS - Sign Up{% endblock %}
+
+{% block head %}
+  <link href="./static/signup.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div id="signupDiv" class="card align-items-center mt-5 mb-5" data-bs-theme="dark">
+      <h2>Sign Up</h2>
+
+      {% from "_formhelpers.html" import render_field %}
+      <form method=post action="" novalidate>
+        <dl>
+          {{ form.hidden_tag() }}
+          {{ render_field(form.username, id="username", class="form-control mb-2", placeholder="Username") }}
+          <span id="usernameAvailability"></span>
+          {{ render_field(form.first_name, class="form-control mb-2", placeholder="First Name") }}
+          {{ render_field(form.last_name, class="form-control mb-2", placeholder="Last Name") }}
+          {{ render_field(form.email, class="form-control mb-2", placeholder="Email Address")  }}
+          {{ render_field(form.password, class="form-control mb-2", placeholder="Password") }}
+          {{ render_field(form.confirmPassword, class="form-control mb-2", placeholder="Confirm Password") }}
+        </dl>
+        <div class="container-fluid d-flex align-items-center justify-content-center">
+        {{ form.submit(class="btn btn-primary registerButton") }}
+        </div>
+      </form>
+
+
+
+
+         
+        </form>
+          
+        <hr />
+        <div class="align-items-center flex-column d-flex">
+          <a><button class="btn btn-success mb-2 googleButton"><img src="{{url_for('static', filename='images/google.svg')}}" class="googleIcon">
+            Signup with Google
+          </button></a>
+        </div>
+          <p>Already on CSTWOTS? <a href="login" class="loginLink mt-1">LOGIN</a></p>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+
+  {% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='signup.js') }}"></script>
+{% endblock %}

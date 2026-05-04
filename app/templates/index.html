@@ -1,0 +1,189 @@
+{% extends 'base.html' %} {% block title %}CS-TWOTS - Videos{% endblock %} {%
+block head %}
+<link rel="stylesheet" href="./static/videos.css" />
+
+{% endblock %} {% block content %}
+
+<!--                                          Filter buttons                                        -->
+
+<!--Maps filter-->
+<div class="container-fluid my-5">
+  <div class="d-flex flex-column align-items-center headerContent">
+    <img
+      src="{{ url_for('static', filename='images/logos/black-logo-1x1-clean.png') }}"
+      class="headerLogo"
+    />
+    <h3 id="subHeaderVids">Mapas</h3>
+  </div>
+
+  <div class="container-fluid" id="mapsContainer">
+    <!--Bookmarked videos filter-->
+    <div class="form-check form-switch form-check-reverse">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexSwitchCheckReverse"
+      />
+      <label class="form-check-label bookmarksLabel">Bookmarked Videos</label>
+
+    </div>
+
+    <div class="filter">
+      <button
+        class="btn btn-danger mapFilter selectAllButton"
+        data-filter="all"
+      >
+        All
+      </button>
+      <button class="btn btn-dark mapFilter mirageButton" data-filter="mirage">
+        Mirage
+      </button>
+      <button
+        class="btn btn-dark mapFilter infernoButton"
+        data-filter="inferno"
+      >
+        Inferno
+      </button>
+      <button
+        class="btn btn-dark mapFilter ancientButton"
+        data-filter="ancient"
+      >
+        Ancient
+      </button>
+      <button
+        class="btn btn-dark mapFilter vertigoButton"
+        data-filter="vertigo"
+      >
+        Vertigo
+      </button>
+      <button class="btn btn-dark mapFilter anubisButton" data-filter="anubis">
+        Anubis
+      </button>
+      <button
+        class="btn btn-dark mapFilter overpassButton"
+        data-filter="overpass"
+      >
+        Overpass
+      </button>
+      <button class="btn btn-dark mapFilter nukeButton" data-filter="nuke">
+        Nuke
+      </button>
+    </div>
+  </div>
+
+  <!--Nades filter-->
+  <div class="container-fluid" id="nadesContainer">
+    <button
+      class="btn btn-outline-dark nadeFilter smokeButton"
+      type="button"
+      data-filter="smoke"
+      id="smokeBtn"
+    >
+      <img
+        src="{{url_for('static', filename='images/smoke.webp')}}"
+        id="smokeImg"
+      />
+    </button>
+    <button
+      class="btn btn-outline-dark nadeFilter flashButton"
+      type="button"
+      data-filter="flash"
+      id="flashBtn"
+    >
+      <img
+        src="{{url_for('static', filename='images/flash.webp')}}"
+        id="flashImg"
+      />
+    </button>
+    <button
+      class="btn btn-outline-dark nadeFilter mollyButton"
+      type="button"
+      data-filter="molly"
+      id="mollyBtn"
+    >
+      <img
+        src="{{url_for('static', filename='images/molotov.webp')}}"
+        id="mollyImg"
+      />
+    </button>
+    <button
+      class="btn btn-outline-dark nadeFilter heButton"
+      type="button"
+      id="heBtn"
+      data-filter="nade"
+    >
+      <img src="{{url_for('static', filename='images/he.webp')}}" id="heImg" />
+    </button>
+  </div>
+</div>
+
+<!-- Videos grid-->
+<div class="container-fluid videos-grid" data-bs-theme="dark">
+  <div
+    class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-4 g-3 mt-0 cardsContent"
+    id="cardsContainer"
+    data-bs-theme="dark"
+  >
+
+  </div>
+</div>
+
+<!-- confirm watch video  -->
+<div class="modal fade" id="confirmWatchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmWatchModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmWatchModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="confirmationMessage">Do you want to watch this video?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="confirmButton" class="btn btn-primary" data-bs-dismiss="modal" >Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Videos modal -->
+<div
+  class="modal fade"
+  id="videoModal"
+  tabindex="-1"
+  aria-labelledby="videoModalLabel"
+  aria-hidden="true"
+  data-bs-theme="dark"
+>
+  <div
+    class="modal-dialog modal-xs modal-sm modal-md modal-lg modal-xl modal-xxl"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="videoModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="ratio ratio-16x9">
+          <iframe
+            id="videoIframe"
+            title="YouTube video"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

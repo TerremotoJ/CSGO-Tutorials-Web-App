@@ -1,0 +1,80 @@
+{% macro render_field(field) %}
+{{ field(class=class, placeholder=placeholder, **kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+
+
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
+
+{% macro render_login_field(field) %}
+  <div class="mb-2">
+  
+    {{ field.label }}
+    {{ field(class=class, placeholder=placeholder, **kwargs)|safe }}
+    {% if field.errors %}
+      <ul class="errors">
+      {% for error in field.errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    
+  </div>
+{% endmacro %}
+
+
+{% macro render_change_profile_pic_field(field) %}
+  <div class="mb-3">
+    <label>{{ field.label }}</label>
+    <br />
+    {% for choice, label in field.choices %}
+      <label>
+        <input type="radio" name="{{ field.name }}" value="{{ choice }}" {% if field.data == choice %}checked{% endif %}>
+        <img src="{{ url_for('static', filename='profile_pics/{}'.format(label)) }}" alt="{{ label }}" style="width: 50px; height: auto">
+      </label>
+    {% endfor %}
+    {% if field.errors %}
+      <ul class="errors">
+        {% for error in field.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+
+
+{% macro render_change_email_field(field) %}
+  <div class="mb-3">
+    <label>{{ field.label }}</label>
+    {{ field(class="form-control mb-2") }}
+    {% if field.errors %}
+      <ul class="errors">
+        {% for error in field.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro render_change_password_field(field) %}
+  <div class="mb-3">
+    <label>{{ field.label }}</label>
+    {{ field(class="form-control mb-2") }}
+    {% if field.errors %}
+      <ul class="errors">
+        {% for error in field.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endmacro %}
